@@ -29,6 +29,6 @@ public class Main
 				if(tag == 0) res*=i;
 			}
 		}
-		System.out.println(res);
+		System.out.println((res==1)?0:res);
 	}
 }
