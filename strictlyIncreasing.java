@@ -38,14 +38,18 @@ public class Main
 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt(), arr[] = new int[n], res = 1;
+		int n = sc.nextInt(), arr[] = new int[n], nums[] = new int[n-1],res=1;
 		for(int i=0;i<n;i++) arr[i] = sc.nextInt();
-		int temp = arr[0];
-		for(int i=1;i<n;i++){
-			if(i!=0 && temp<arr[i]) {
-				res++;
-				temp = arr[i-1];
+		for(int i=0;i<n;i++){
+			int m = 0;
+			res = 1;
+			for(int j=0;j<n;j++){
+				if(j!=i) nums[m++] = arr[j];
 			}
+			for(int k=1;k<n-1;k++){
+				if(nums[k-1]<nums[k]) res++;
+			}
+			if(res==n-1)break;
 		}
 		System.out.println((res==n || res == n-1)?"true":"false");
 	}
